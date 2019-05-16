@@ -14,7 +14,7 @@ import org.apache.commons.codec.binary.Base64;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -60,8 +60,8 @@ public final class JWTCreator {
         private Map<String, Object> headerClaims;
 
         Builder() {
-            this.payloadClaims = new HashMap<>();
-            this.headerClaims = new HashMap<>();
+            this.payloadClaims = new LinkedHashMap<>();
+            this.headerClaims = new LinkedHashMap<>();
         }
 
         /**
@@ -71,7 +71,7 @@ public final class JWTCreator {
          * @return this same Builder instance.
          */
         public Builder withHeader(Map<String, Object> headerClaims) {
-            this.headerClaims = new HashMap<>(headerClaims);
+            this.headerClaims = new LinkedHashMap<>(headerClaims);
             return this;
         }
 
